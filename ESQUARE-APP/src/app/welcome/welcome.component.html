@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="mini-title">
+        <img class="book-image" src="assets/images/book.png">
+        <h5 class="welcome-title">Welcome to the book search!</h5>
+        <h6>Insert username to start</h6>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="login-box">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="col-sm-12">
+          <label>Username:</label>
+          <input class="username-input" type="text" formControlName="username">
+          <h6 class="error-message" *ngIf="userName.errors?.minlength">Username length must be at least 3 characters</h6>
+          <button class="submit-btn" type="submit">Submit<span><img class="right-arrow-icon"
+                src="../../assets/images/right-arrow-icon.png"></span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="page-title">Wishlist Items</div>
+  </div>  
+  <div class="wishlist-wrapper" *ngIf="wishlistBooks.length > 0">
+    <div class="wishlist-item"  *ngFor="let item of wishlistBooks; let i = index">
+      <wishlist-item [item]="item" [itemIndex]="i" (deleteEmitter)="deleteItemFromList($event)"></wishlist-item>
+    </div>
+  </div>  
+  <div *ngIf="wishlistBooks.length == 0" class="wishlist-empty">
+    <h2>Your wishlist is empty</h2>
+    <img class="empty-wishlist-img" src="../../../../assets/images/empty-wishlist.png">
+    <h5>Back to <span (click)="backToSearch()" class="link-to-search">search</span></h5>
+  </div>
+</div>

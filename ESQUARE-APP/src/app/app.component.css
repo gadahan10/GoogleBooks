@@ -1,0 +1,33 @@
+.navbar {
+    background-color: #333333;
+    height: 3.5em;
+}
+
+
+
+.wishlist-wrapper {
+    display: inherit;
+}
+
+.wishlist-icon {
+    height: 2.5em;
+    width: auto;
+}
+
+.wishlist-icon:hover {
+    cursor: pointer;
+}
+
+
+
+.back-to-search-link {
+    color: #fff;
+    font-size: 1.2em;
+    transition: 0.4s;
+}
+
+.back-to-search-link:hover {
+    cursor: pointer;
+    color: #0ef1a0;
+    transition: 0.4s;
+}

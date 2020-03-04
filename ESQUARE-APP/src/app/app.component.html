@@ -1,0 +1,10 @@
+<nav class="navbar">
+    <div class="container">
+        <div class="wishlist-wrapper" *ngIf="router.url !=='/welcome'">
+            <img class="wishlist-icon" src="../assets/images/wishlist-icon.png" (click)="onWishlistClick()">
+            <h6 class="wish-list-items-ctr"></h6>
+        </div>      
+        <a class="back-to-search-link" href="./search/book-search" *ngIf="router.url==='/wishlist/items'">Back to search</a>  
+    </div>
+</nav>
+<router-outlet></router-outlet>

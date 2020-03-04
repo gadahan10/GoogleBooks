@@ -1,0 +1,10 @@
+<div class="result-wrapper">
+  <img class="book-image" [src]="book.thumbnail">
+  <div class="book-info">
+    <h6 class="book-title">{{ book.title }}</h6>
+    <h6 class="sub-info">Year published: {{ book.publishedDate}}</h6>
+    <h6 class="sub-info">Authors: {{book.authors}}</h6>
+  </div>
+  <button class="learn-more-btn" (click)="onLearnMoreClick(this)">Read More<span><img class="right-arrow-icon"
+    src="assets/images/right-arrow-icon.png"></span></button>
+</div>

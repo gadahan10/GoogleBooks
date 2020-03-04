@@ -1,0 +1,68 @@
+
+.wishlist-item-wrapper {
+    height: 12em;
+    width: 80%;
+    border: 1px solid #9c9c9c;
+    border-radius: 5px;
+    margin: 2em auto;
+    background-color: #fff;
+    box-shadow: 2px 2px 4px 0px #75757580;
+}
+
+.wishlist-item-img {
+    height: 10em;
+    max-width: 9em;
+    padding-left: 1em;
+    margin-top: 1em;
+}
+
+.item-info {
+    margin-top: 1em;
+}
+
+.wishlist-item {
+    font-weight: bold;
+    margin-bottom: 0.75em;
+}
+
+.item-row {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wishlist-item span {
+    margin-right: 3em;
+}
+
+.wishlist-title {
+    font-size: 1.75em;
+    font-weight: bold;
+    margin-bottom: 0.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wishlist-small-icon {
+    height: 1.8em;
+    width: auto;
+    margin-right: 0.4em;
+}
+
+.delete-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-icon {
+    height: 3em;
+    width: auto;
+    transition: 0.5s;
+}
+
+.delete-icon:hover {
+    cursor: pointer;
+    transform: rotate(10deg)
+}

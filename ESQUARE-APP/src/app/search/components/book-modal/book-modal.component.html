@@ -1,0 +1,58 @@
+<div class="bg-modal">
+    <div class="modal-content">
+        <div class="top-area">
+            <div class="close-modal"><img src="../../../../assets/images/close-popup-sign.png"
+                    (click)="closeBookInfoModal()">
+            </div>
+            <div class="modal-title">
+                <h5>Book Information</h5>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="book-title">
+                    <h5>Book name:</h5>
+                    <h6>{{ book.title}}</h6>
+                </div>
+                <div class="book-description">
+                    <h5>Description:</h5>
+                    <h6 [ngClass]="book.description.length > 4 ? 'book-description-full' : 'book-description-empty'">
+                        {{ book.description}}</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="book-authors">
+                        <h5>Authors:</h5>
+                        <h6>{{ book.authors}}</h6>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="book-publish-year">
+                        <h5>Published Year:</h5>
+                        <h6>{{ book.publishedDate}}</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="book-categories">
+                        <h5>Categories:</h5>
+                        <h6>{{ book.categories}}</h6>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="book-publisher">
+                        <h5>Publisher:</h5>
+                        <h6>{{ book.publisher}}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button *ngIf="!isInWishlist" class="add-btn" (click)="onAddToWishlistClick()">Add to Wishlist<span><img class="add-icon"
+                    src="assets/images/add-icon.png"></span></button>
+
+        <button *ngIf="isInWishlist" class="already-added-btn">This book was added to your <span class="wishlist-link" (click)="navigateToWishlist()">wishlist</span> <span><img title="Item can be removed in wishlist page" class="info-icon" src="../../../../assets/images/info-icon.png"></span></button>
+    </div>
+
+</div>

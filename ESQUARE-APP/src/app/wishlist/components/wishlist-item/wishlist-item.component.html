@@ -1,0 +1,42 @@
+<div class="wishlist-item-wrapper">
+  <div class="row">
+    <div class="col-sm-2">
+      <img class="wishlist-item-img" [src]="item.thumbnail">
+    </div>
+    <div class="col-sm-8">
+      <div class="item-info">
+        <div class="wishlist-title">
+          {{ item.title }}
+        </div>
+        <div class="wishlist-item">
+          <div class="row">
+            <div class="col-sm-6 item-row">
+              <img class="wishlist-small-icon" src="../../../../assets/images/author-icon.png">
+              <span title={{item.authors}}>Authors: {{ item.authors }}</span>
+            </div>
+            <div class="col-sm-6 item-row">
+              <img class="wishlist-small-icon" src="../../../../assets/images/publisher-icon.png">
+              <span title={{item.publisher}}>Publisher: {{ item.publisher }}</span>
+            </div>
+          </div>
+          
+          
+        </div>
+        <div class="wishlist-item">
+          <img class="wishlist-small-icon" src="../../../../assets/images/date-published-icon.png">
+          <span>Publish Date: {{ item.publishedDate }}</span>
+        </div>
+        <div class="wishlist-item">
+          <img class="wishlist-small-icon" src="../../../../assets/images/category-icon.png">
+          <span>Categories: {{ item.categories }}</span>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2 delete-wrapper">
+      <img class="delete-icon" 
+          src="../../../../assets/images/trash-icon.png"
+          (click)="deleteItem()">
+    </div>
+  </div>
+</div>

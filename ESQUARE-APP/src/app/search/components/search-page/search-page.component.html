@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="greeting-message">Welcome {{username}}</div>
+  </div>
+  <div class="row">
+    <div class="search-wrapper">
+      <input type="text" class="search-bar" (keyup)="onSearch($event)" [(ngModel)]="searchValue">
+    </div>
+  </div>  
+  <div class="results">
+    <div class="showing-results-message" *ngIf="books.length > 0 && searchValue != ''">
+      Showing search results for: "{{ searchValue }}"
+    </div>
+    <div class="row">
+      <result-box class="col-sm-4" *ngFor="let book of booksFiltered; let i = index" [book]="book" (bookEmitter)="onBookEmitEvent($event)"></result-box>
+    </div>
+  </div>   
+  <div class="prev-next-buttons-wrapper">
+    <button class="prev-next-btn" (click)="onPrevClick()" 
+          *ngIf="currentPage > 1"><img src="assets/images/prev-icon.png">
+          <span>Previous</span>
+    </button>
+    <button class="prev-next-btn" (click)="onNextClick()" 
+            *ngIf="books.length > resultsPerPage && (resultsPerPage * currentPage) < books.length">
+             Next<span><img src="assets/images/next-icon.png"></span>
+    </button>
+  </div>
+</div>
+
+<book-modal *ngIf=isPopupOpen [(book)]="selectedBook" (modalEmitter)=onCloseModalEmitEvent($event)></book-modal>

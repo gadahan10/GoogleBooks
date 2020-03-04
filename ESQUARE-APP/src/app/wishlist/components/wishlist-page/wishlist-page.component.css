@@ -1,0 +1,30 @@
+.page-title {
+    margin: 0 auto;
+    margin-top: 2em;
+    font-size: 2em;
+    font-weight: bold;
+    color: #333333;
+}
+
+.wishlist-empty {
+    text-align: center;
+    margin-top: 3em;
+}
+
+.empty-wishlist-img {
+    width: 12em;
+    height: auto;
+    margin: 2em 0;
+}
+
+.wishlist-empty h2 {
+    font-weight: bold;
+}
+
+.link-to-search {
+    text-decoration: underline;
+}
+
+.link-to-search:hover {
+    cursor: pointer;
+}

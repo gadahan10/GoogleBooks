@@ -1,0 +1,73 @@
+.result-wrapper {
+    border: 1px solid #9c9c9c;
+    width: 80%;
+    border-radius: 10px;
+    margin-bottom: 4em;
+    box-shadow: 2px 2px 4px 0px rgba(117,117,117,0.5);
+    height: 28em;
+    position: relative;
+    background-color: #fff;
+}
+
+.book-info {
+    margin-top: 0.75em;
+}
+
+.book-image {
+    height: 18em;
+    width: 100%;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    transition: 0.4s;
+}
+
+.book-image:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.book-title, .sub-info {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    padding: 0 1em;
+    margin-bottom: 0.75em;
+}
+
+.book-title {
+    font-weight: bold;
+}
+.sub-info {
+    font-weight: normal;
+} 
+
+.learn-more-btn {
+    background-color: #0ef1a0;
+    border: none;
+    color: #fff;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    height: 2.75em;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+.learn-more-btn:hover {
+    background-color: #00ce86;
+    transition: 0.4s;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.right-arrow-icon {
+    height: 0.6em;
+    width: auto;
+    margin-left: 5px;
+    vertical-align: initial;
+}
