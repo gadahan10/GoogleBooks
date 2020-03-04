@@ -17,6 +17,7 @@ export class SearchPageComponent implements OnInit {
   selectedBook: Book = new Book();
   wishlistBooks: Array<Book>;
   username: string;
+  lastKeypress: number = 0;
 
   // Prev next
   resultsPerPage: number;
@@ -27,7 +28,7 @@ export class SearchPageComponent implements OnInit {
   ngOnInit() {
     // get username from session storage
     this.username = sessionStorage.getItem("username");
-    
+
     // Set number of results per page
     this.resultsPerPage = 6;
 
@@ -39,46 +40,52 @@ export class SearchPageComponent implements OnInit {
 
   }
 
-  onSearch(searchTerm) : void{    
+  onSearch(searchTerm): void {
+
+    if (searchTerm.timeStamp - this.lastKeypress > 200) {
+
 
       this.searchService.getBooks(searchTerm.target.value)
-      .subscribe((data:any) => {
-        console.log(data);
-        // Clear the array before adding the new results
-        this.books = [];
+        .subscribe((data: any) => {
+          console.log(data);
+          // Clear the array before adding the new results
+          this.books = [];
 
-        // Fill the array with updated results
-        for (let b of data.items){
-          var book = new Book();
-          book.title = b.volumeInfo.title;
-          book.bookId = b.id;
-          book.authors = (b.volumeInfo.authors == undefined) ? "N\\A" : b.volumeInfo.authors;
-          book.categories = (b.volumeInfo.categories == undefined) ? "N\\A" : b.volumeInfo.categories;
-          book.publishedDate = (b.volumeInfo.publishedDate == undefined) ? "N\\A" : b.volumeInfo.publishedDate;
-          book.publisher = (b.volumeInfo.publisher == undefined) ? "N\\A" : b.volumeInfo.publisher;
-          book.description = (b.volumeInfo.description == undefined) ? "N\\A" : b.volumeInfo.description;
-          book.thumbnail = (b.volumeInfo.imageLinks != undefined && b.volumeInfo.imageLinks.thumbnail != undefined) ? b.volumeInfo.imageLinks.thumbnail : "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
-          book.smallThumbnail = (b.volumeInfo.imageLinks != undefined && b.volumeInfo.imageLinks.smallThumbnail != undefined) ? b.volumeInfo.imageLinks.smallThumbnail : "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
-          
-          this.books.push(book);
-        }
-        
-        this.showResultsByRange(0, 6);
-        
+          // Fill the array with updated results
+          for (let b of data.items) {
+            var book = new Book();
+            book.title = b.volumeInfo.title;
+            book.bookId = b.id;
+            book.authors = (b.volumeInfo.authors == undefined) ? "N\\A" : b.volumeInfo.authors;
+            book.categories = (b.volumeInfo.categories == undefined) ? "N\\A" : b.volumeInfo.categories;
+            book.publishedDate = (b.volumeInfo.publishedDate == undefined) ? "N\\A" : b.volumeInfo.publishedDate;
+            book.publisher = (b.volumeInfo.publisher == undefined) ? "N\\A" : b.volumeInfo.publisher;
+            book.description = (b.volumeInfo.description == undefined) ? "N\\A" : b.volumeInfo.description;
+            book.thumbnail = (b.volumeInfo.imageLinks != undefined && b.volumeInfo.imageLinks.thumbnail != undefined) ? b.volumeInfo.imageLinks.thumbnail : "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
+            book.smallThumbnail = (b.volumeInfo.imageLinks != undefined && b.volumeInfo.imageLinks.smallThumbnail != undefined) ? b.volumeInfo.imageLinks.smallThumbnail : "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
 
-      });    
+            this.books.push(book);
+          }
+
+          this.showResultsByRange(0, 6);
+
+
+        });
+    }
+
+    this.lastKeypress = searchTerm.timeStamp;
   }
 
-  initilizedWishList() : void{
+  initilizedWishList(): void {
 
     this.wishlistBooks = new Array<Book>();
     var sessionWishlist = sessionStorage.getItem("wishlist");
 
-    if (sessionWishlist == null){
-      
-      sessionStorage.setItem("wishlist", JSON.stringify(this.wishlistBooks));      
+    if (sessionWishlist == null) {
+
+      sessionStorage.setItem("wishlist", JSON.stringify(this.wishlistBooks));
     }
-    
+
   }
 
   onBookEmitEvent(event): void {
@@ -97,15 +104,15 @@ export class SearchPageComponent implements OnInit {
 
   showResultsByRange(from: number, to: number): void {
 
-    if (from >= 0 && to > 0){
+    if (from >= 0 && to > 0) {
 
       this.updateFilteredArray();
 
       this.booksFiltered = this.booksFiltered.slice(from, to);
-    }    
+    }
   }
 
-  onNextClick(): void {    
+  onNextClick(): void {
 
     // Filter the array with next page results
     this.showResultsByRange((this.currentPage * this.resultsPerPage), (++this.currentPage * this.resultsPerPage));

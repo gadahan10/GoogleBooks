@@ -11,7 +11,7 @@ export class SearchService {
     constructor(private httpService: HttpClient) {}
 
     getBooks(searchTerm: string){
-       
+   
         var url = `https://www.googleapis.com/books/v1/volumes?q=" ${searchTerm} "&maxResults=20&key=AIzaSyBcaVnYSRR3JzHvGm4ad1IMY5oGWz40ePI`;
         return this.httpService.get(url);
  
