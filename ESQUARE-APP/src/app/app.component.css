@@ -14,10 +14,9 @@
     width: auto;
 }
 
-.wishlist-icon:hover {
+.wishlist-icon:hover, .logout-icon:hover {
     cursor: pointer;
 }
-
 
 
 .back-to-search-link {
@@ -30,4 +29,9 @@
     cursor: pointer;
     color: #0ef1a0;
     transition: 0.4s;
+}
+
+.logout-icon {
+    height: 2em;
+    width: auto;
 }

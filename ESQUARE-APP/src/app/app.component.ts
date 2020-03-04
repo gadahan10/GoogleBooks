@@ -16,7 +16,11 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {}
 
   onWishlistClick(): void {
-    console.log("bababa");
+
     this.router.navigateByUrl('/wishlist/items');
+  }
+
+  logout(): void {
+    this.router.navigateByUrl('/welcome');
   }
 }

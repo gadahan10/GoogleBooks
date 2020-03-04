@@ -5,6 +5,7 @@
             <h6 class="wish-list-items-ctr"></h6>
         </div>      
         <a class="back-to-search-link" href="./search/book-search" *ngIf="router.url==='/wishlist/items'">Back to search</a>  
+        <img class="logout-icon" *ngIf="router.url !=='/welcome'" (click)="logout()" src="../assets/images/logout-icon.png">
     </div>
 </nav>
 <router-outlet></router-outlet>
